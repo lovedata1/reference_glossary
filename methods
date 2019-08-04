@@ -62,3 +62,8 @@ returns:
 Notice that the caller of distance_from_origin does not explicitly supply an argument to match the self parameter. 
 This is true of all method calls. 
 The definition will always have one additional parameter as compared to the invocation.
+
+Functions and methods can return objects. 
+This is actually nothing new since everything in Python is an object and we have been returning values for quite some time. 
+The difference here is that we want to have the method create an object using the constructor 
+and then return it as the value of the method.
