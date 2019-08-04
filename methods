@@ -1,0 +1,64 @@
+A method behaves like a function but it is invoked on a specific instance. 
+
+Methods are accessed using dot notation.
+
+All methods defined in a class that operate on objects of that class will have self as their first parameter. 
+<Again, this serves as reference to the object itself which in turn gives access to the state data inside the object.>
+
+example:
+class Point:
+    """ Point class for representing and manipulating x,y coordinates. """
+
+    def __init__(self, init_x, init_y):
+        """ Create a new point at the given coordinates. """
+        self.x = init_x
+        self.y = init_y
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+p = Point(7, 6)
+print(p.get_x())
+print(p.get_y())
+
+results:
+7
+6
+
+Note that the get_x method simply returns the value of self.x from the object itself. 
+In other words, the implementation of the method is to go to the state of the object itself and get the value of x. 
+Likewise, the get_y method looks the same.
+
+Let’s add another method, distance_from_origin, to see better how methods work. 
+This method will not need any additional information to do its work, but it will perform a more complex task.
+
+class Point:
+    """ Point class for representing and manipulating x,y coordinates. """
+
+    def __init__(self, init_x, init_y):
+        """ Create a new point at the given coordinates. """
+        self.x = init_x
+        self.y = init_y
+
+    def get_x(self):
+        return self.x
+
+    def get_y(self):
+        return self.y
+
+    def distance_from_origin(self):
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+
+
+p = Point(7, 6)
+print(p.distance_from_origin())
+
+returns:
+9.21954445729
+
+Notice that the caller of distance_from_origin does not explicitly supply an argument to match the self parameter. 
+This is true of all method calls. 
+The definition will always have one additional parameter as compared to the invocation.
